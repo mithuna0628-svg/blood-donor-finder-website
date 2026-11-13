@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Donor Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">🩸 Blood Donor Finder</div>
+  <div id="screenCount">Screen 1 of 10</div>
+</header>
+
+<main class="container">
+
+  <!-- SCREEN 1 -->
+  <section class="screen active">
+    <div class="hero">
+      <div class="blood-logo">🩸</div>
+      <p class="tagline">A small donation can make a big difference</p>
+      <h1>Blood Donor Finder</h1>
+      <p>Find blood donors, learn about donation, and help connect people in need.</p>
+      <button class="primary" onclick="goTo(1)">Get Started →</button>
+    </div>
+  </section>
+
+  <!-- SCREEN 2 -->
+  <section class="screen">
+    <h1>Why Is Blood Donation Important?</h1>
+    <p class="intro">Blood donation helps people who need blood during medical treatment.</p>
+    <div class="info-grid">
+      <article class="info-card"><h3>❤️ Saves Lives</h3><p>Donated blood can help patients during emergencies and treatment.</p></article>
+      <article class="info-card"><h3>🏥 Helps Patients</h3><p>Hospitals need a safe blood supply for different medical needs.</p></article>
+      <article class="info-card"><h3>🤝 Supports Others</h3><p>Voluntary donation is one way to support people in our community.</p></article>
+    </div>
+    <p class="note">Blood donation eligibility and frequency must be checked with a qualified medical professional or blood bank.</p>
+  </section>
+
+  <!-- SCREEN 3 -->
+  <section class="screen">
+    <h1>About Blood Donation</h1>
+    <div class="info-card">
+      <h3>What is blood donation?</h3>
+      <p>Blood donation is the process of giving blood at an approved blood donation centre. The collected blood is tested and handled by trained professionals.</p>
+      <h3>Who can donate?</h3>
+      <p>Eligibility depends on age, health, weight, medical history and local rules. A qualified medical professional must confirm eligibility.</p>
+      <h3>What are the blood groups?</h3>
+      <p>The main blood groups are A+, A-, B+, B-, AB+, AB-, O+ and O-.</p>
+    </div>
+  </section>
+
+  <!-- SCREEN 4 -->
+  <section class="screen">
+    <h1>Hospitals in Tamil Nadu</h1>
+    <p class="intro">Select a district to see a hospital reference. Confirm addresses and services directly with the hospital.</p>
+    <label for="hospitalDistrict">Select District</label>
+    <select id="hospitalDistrict">
+      <option value="">Choose a district</option>
+    </select>
+    <div id="hospitalResult" class="result-box">Choose a district to view information.</div>
+    <div class="info-card">
+      <h3>Some major government hospitals</h3>
+      <ul>
+        <li>Rajiv Gandhi Government General Hospital – Chennai</li>
+        <li>Coimbatore Medical College Hospital – Coimbatore</li>
+        <li>Government Rajaji Hospital – Madurai</li>
+        <li>Mahatma Gandhi Memorial Government Hospital – Tiruchirappalli</li>
+        <li>Government Mohan Kumaramangalam Medical College Hospital – Salem</li>
+        <li>Tirunelveli Medical College Hospital – Tirunelveli</li>
+      </ul>
+      <p class="note">This is a project reference list, not a live hospital directory. Please verify current details through official hospital sources.</p>
+    </div>
+  </section>
+
+  <!-- SCREEN 5 -->
+  <section class="screen">
+    <h1>Blood Bank Information</h1>
+    <p class="intro">Blood availability changes frequently. Contact an authorised blood bank or hospital to confirm availability.</p>
+    <label for="bloodBankDistrict">Select District</label>
+    <select id="bloodBankDistrict">
+      <option value="">Choose a district</option>
+    </select>
+    <div id="bloodBankResult" class="result-box">Choose a district for guidance.</div>
+    <div class="info-card">
+      <h3>Important</h3>
+      <p>This website does not check live blood stock. Always contact an authorised blood bank directly for current availability and compatibility guidance.</p>
+    </div>
+  </section>
+
+  <!-- SCREEN 6 -->
+  <section class="screen">
+    <h1>Donor Registration</h1>
+    <p class="intro">Register a demo donor profile for this project.</p>
+    <form id="donorForm" class="form-card">
+      <label for="donorName">Donor Name</label>
+      <input id="donorName" type="text" maxlength="40" required placeholder="Enter name">
+
+      <label for="donorBlood">Blood Group</label>
+      <select id="donorBlood" required>
+        <option value="">Select blood group</option>
+        <option>A+</option><option>A-</option>
+        <option>B+</option><option>B-</option>
+        <option>AB+</option><option>AB-</option>
+        <option>O+</option><option>O-</option>
+      </select>
+
+      <label for="donorDistrict">District</label>
+      <select id="donorDistrict" required>
+        <option value="">Select district</option>
+      </select>
+
+      <label for="donorCity">City / Town</label>
+      <input id="donorCity" type="text" maxlength="40" required placeholder="Enter city or town">
+
+      <label class="check-label">
+        <input id="donorAvailable" type="checkbox">
+        Available to be contacted through an authorised service
+      </label>
+
+      <button class="primary" type="submit">Register Donor</button>
+      <p id="donorMessage" class="message" aria-live="polite"></p>
+    </form>
+    <p class="note">Demo only: information is saved in this browser, not shared with other people. Do not enter real personal or contact details.</p>
+  </section>
+
+  <!-- SCREEN 7 -->
+  <section class="screen">
+    <h1>Search Donors</h1>
+    <p class="intro">Search the sample and locally registered demo donor list.</p>
+    <div class="form-card">
+      <label for="searchBlood">Blood Group</label>
+      <select id="searchBlood">
+        <option value="">All blood groups</option>
+        <option>A+</option><option>A-</option>
+        <option>B+</option><option>B-</option>
+        <option>AB+</option><option>AB-</option>
+        <option>O+</option><option>O-</option>
+      </select>
+      <label for="searchDistrict">District</label>
+      <select id="searchDistrict">
+        <option value="">All districts</option>
+      </select>
+      <button class="primary" type="button" onclick="searchDonors()">Search Donors</button>
+    </div>
+    <div id="donorResults" class="result-box" aria-live="polite">Select filters and click Search Donors.</div>
+    <p class="note">Search results are demo profiles only. This is not a real donor matching or emergency service.</p>
+  </section>
+
+  <!-- SCREEN 8 -->
+  <section class="screen">
+    <h1>Blood Request Details</h1>
+    <p class="intro">Add a sample blood request to demonstrate the project.</p>
+    <form id="requestForm" class="form-card">
+      <label for="requesterName">Requester Name</label>
+      <input id="requesterName" type="text" maxlength="40" required placeholder="Enter name">
+
+      <label for="requestBlood">Required Blood Group</label>
+      <select id="requestBlood" required>
+        <option value="">Select blood group</option>
+        <option>A+</option><option>A-</option>
+        <option>B+</option><option>B-</option>
+        <option>AB+</option><option>AB-</option>
+        <option>O+</option><option>O-</option>
+      </select>
+
+      <label for="requestDistrict">District</label>
+      <select id="requestDistrict" required>
+        <option value="">Select district</option>
+      </select>
+
+      <label for="requestHospital">Hospital Name</label>
+      <input id="requestHospital" type="text" maxlength="80" required placeholder="Enter hospital name">
+
+      <button class="primary" type="submit">Submit Request</button>
+      <p id="requestMessage" class="message" aria-live="polite"></p>
+    </form>
+    <h2>Submitted Demo Requests</h2>
+    <div id="requestResults" class="result-box">No requests added yet.</div>
+    <p class="note">Do not enter real patient details. In a real system, requests must be handled securely by an authorised service.</p>
+  </section>
+
+  <!-- SCREEN 9 -->
+  <section class="screen">
+    <h1>Blood Donation Camps</h1>
+    <p class="intro">Learn where donation camps may be organised.</p>
+    <div class="info-grid">
+      <article class="info-card"><h3>🏥 Government Hospitals</h3><p>Check with the district government hospital for officially announced camps.</p></article>
+      <article class="info-card"><h3>🎓 Colleges</h3><p>Some colleges organise voluntary blood donation camps with authorised medical teams.</p></article>
+      <article class="info-card"><h3>🏢 Community Centres</h3><p>Local organisations may announce approved camps in their communities.</p></article>
+    </div>
+    <div class="info-card">
+      <h3>Find a camp</h3>
+      <p>For dates, locations and eligibility, contact your district hospital or an authorised blood bank. This project does not contain live camp schedules.</p>
+    </div>
+  </section>
+
+  <!-- SCREEN 10 -->
+  <section class="screen">
+    <div class="hero">
+      <div class="blood-logo">❤️</div>
+      <h1>Thank You!</h1>
+      <p>Thank you for exploring Blood Donor Finder.</p>
+      <p>Awareness, kindness and responsible action can help our community.</p>
+      <button class="primary" onclick="goTo(0)">Back to Home</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <button id="prevBtn" class="secondary" onclick="changeScreen(-1)">← Previous</button>
+  <span id="pageLabel">Welcome</span>
+  <button id="nextBtn" class="primary" onclick="changeScreen(1)">Next →</button>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
